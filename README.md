@@ -6,7 +6,7 @@ A statistical regression project
 
 ## The Team
 
-Rimuru is currently maintained by [Atiq Urrehaman](https://github.com/Adam-Al-Rahman/), Sahil Goyal and T Pranav Selven
+Rimuru is currently maintained by [Atiq Urrehaman](https://github.com/Adam-Al-Rahman/), [Sahil Goyal](https://github.com/SahilGoyal098) and [T Pranav Selven](https://github.com/Sicoprogrammer)
 
 ## License
 
