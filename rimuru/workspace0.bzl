@@ -1,0 +1,54 @@
+""" Rimuru workspace initialization. Consult the WORKSPACE on how to use it."""
+
+# Import third party config rules
+
+# Import third party repository rules.
+load("//third_party:repo.bzl", "rr_http_archive")
+load("//third_party/eigen3:workspace.bzl", eigen3 = "repo")  # `eigen3` it is alias to the original function `repo`
+# Import external repository rules.
+
+def _initialize_third_party():
+    """ Load third party repositories.  See above load() statements. """
+
+    eigen3()
+
+# Define all external repositories required by Rimuru
+def _rr_repositories():
+    """All external dependencies for RR builds."""
+
+    # To update any of the dependencies below:
+    # a) update URL and strip_prefix to the new git commit hash
+    # b) get the sha256 hash of the commit by running:
+    #    curl -L <url> | sha256sum
+    # and update the sha256 with the result.
+
+    rr_http_archive(
+        name = "googletest",
+        sha256 = "bc1cc26d1120f5a7e9eb450751c0b24160734e46a02823a573f3c6b6c0a574a7",
+        strip_prefix = "googletest-e2c06aa2497e330bab1c1a03d02f7c5096eb5b0b",
+        url = "https://github.com/google/googletest/archive/e2c06aa2497e330bab1c1a03d02f7c5096eb5b0b.zip",
+    )
+
+    rr_http_archive(
+        name = "glog",
+        sha256 = "f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c",
+        strip_prefix = "glog-0.4.0",
+        url = "https://github.com/google/glog/archive/refs/tags/v0.4.0.tar.gz",
+    )
+
+def workspace():
+    """ workspace of the rimuru folders """
+
+    # Import third party repositories.
+    _initialize_third_party()
+
+    # Import all other repositories. This should happen before initializing
+    # any external repositories, because those come with their own
+    # dependencies. Those recursive dependencies will only be imported if they
+    # don't already exist (at least if the external repository macros were
+    # written according to common practice to query native.existing_rule()).
+    _rr_repositories()
+
+# Alias so it can be loaded without assigning to a different symbol to prevent
+# shadowing previous loads and trigger a buildifier warning.
+rr_workspace0 = workspace

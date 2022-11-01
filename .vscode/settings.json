@@ -1,0 +1,25 @@
+{
+    "material-icon-theme.folders.associations": {
+        "third_party": "Middleware",
+        "rimuru": "Home",
+
+    },
+    "material-icon-theme.files.associations": {
+        "WORKSPACE": "Bazel",
+        "BUILD": "Bazel",
+    },
+    "cSpell.words": [
+        "absl",
+        "eigen",
+        "HWPRINTRETURN",
+        "Rimuru"
+    ],
+
+    "files.exclude": {
+        // ".vscode/": true,
+    },
+
+    "search.exclude": {
+        "build/": true,
+    },
+}
