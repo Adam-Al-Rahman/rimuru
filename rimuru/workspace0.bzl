@@ -1,16 +1,17 @@
 """ Rimuru workspace initialization. Consult the WORKSPACE on how to use it."""
 
 # Import third party config rules
+load("//third_party:repo.bzl", "rr_http_archive")
 
 # Import third party repository rules.
-load("//third_party:repo.bzl", "rr_http_archive")
 load("//third_party/eigen3:workspace.bzl", eigen3 = "repo")  # `eigen3` it is alias to the original function `repo`
-# Import external repository rules.
+load("//third_party/hedron:workspace.bzl", hedron = "repo")
 
 def _initialize_third_party():
     """ Load third party repositories.  See above load() statements. """
 
     eigen3()
+    hedron()
 
 # Define all external repositories required by Rimuru
 def _rr_repositories():

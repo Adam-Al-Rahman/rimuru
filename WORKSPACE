@@ -10,3 +10,7 @@ workspace(name = "rimuru")
 load("@//rimuru:workspace0.bzl", "rr_workspace0")
 
 rr_workspace0()
+
+load("@//rimuru:workspace1.bzl", "rr_workspace1")
+
+rr_workspace1()

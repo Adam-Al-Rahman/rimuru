@@ -10,9 +10,16 @@
     },
     "cSpell.words": [
         "absl",
+        "Bazel",
+        "bazelrc",
+        "buildifier",
         "eigen",
+        "hedron",
         "HWPRINTRETURN",
-        "Rimuru"
+        "HWTEST",
+        "kwargs",
+        "Rimuru",
+        "srcs"
     ],
 
     "files.exclude": {

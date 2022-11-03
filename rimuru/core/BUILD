@@ -1,15 +1,18 @@
+load("//rimuru:rimuru.bzl", "rr_cc_test")
+load("//rimuru/core/default:rules_cc.bzl", "cc_library")
+
 cc_library(
     name = "core_fib",
     srcs = ["fib.cc"],
     hdrs = ["fib.h"],
-    visibility = ["//visibility:public"],
+    visibility = ["//rimuru:__pkg__"],
 )
 
-cc_test(
+rr_cc_test(
     name = "fib_test",
     srcs = ["fib_test.cc"],
     deps = [
-        "//rimuru/core:core_fib",
+        ":core_fib",
         "@googletest//:gtest_main",
     ],
 )
