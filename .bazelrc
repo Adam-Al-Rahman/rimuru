@@ -1,0 +1,18 @@
+# Rimuru Bazel configuration file
+
+# Default build options
+build --repo_env=CC=clang
+
+# This file tries to group and simplify build options for Rimuru
+# Allow builds using `LLVM C++ Standard Library (libc++)` as a linker library
+
+build:libc++ --action_env=CC
+build:libc++ --action_env=CXX
+build:libc++ --action_env=CXXFLAGS=-stdlib=libc++
+build:libc++ --action_env=PATH
+build:libc++ --define force_libcpp=enabled
+build:libc++ --linkopt -fuse-ld=lld
+
+# Debug config
+
+build:dbg -c dbg

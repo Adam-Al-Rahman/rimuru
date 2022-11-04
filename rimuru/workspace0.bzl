@@ -4,14 +4,19 @@
 load("//third_party:repo.bzl", "rr_http_archive")
 
 # Import third party repository rules.
+load("//third_party/absl:workspace.bzl", absl = "repo")
+load("//third_party/benchmark:workspace.bzl", benchmark = "repo")
 load("//third_party/eigen3:workspace.bzl", eigen3 = "repo")  # `eigen3` it is alias to the original function `repo`
 load("//third_party/hedron:workspace.bzl", hedron = "repo")
+load("//third_party/pybind11_abseil:workspace.bzl", pybind11_abseil = "repo")
 
 def _initialize_third_party():
     """ Load third party repositories.  See above load() statements. """
-
+    absl()
+    benchmark()
     eigen3()
     hedron()
+    pybind11_abseil()
 
 # Define all external repositories required by Rimuru
 def _rr_repositories():
@@ -28,6 +33,14 @@ def _rr_repositories():
         sha256 = "bc1cc26d1120f5a7e9eb450751c0b24160734e46a02823a573f3c6b6c0a574a7",
         strip_prefix = "googletest-e2c06aa2497e330bab1c1a03d02f7c5096eb5b0b",
         url = "https://github.com/google/googletest/archive/e2c06aa2497e330bab1c1a03d02f7c5096eb5b0b.zip",
+    )
+
+    # gflags is a dependency of glog.
+    rr_http_archive(
+        name = "com_github_gflags_gflags",
+        sha256 = "34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf",
+        strip_prefix = "gflags-2.2.2",
+        url = "https://github.com/gflags/gflags/archive/v2.2.2.tar.gz",
     )
 
     rr_http_archive(
