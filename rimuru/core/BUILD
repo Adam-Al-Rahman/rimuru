@@ -2,21 +2,22 @@ load("//rimuru:rimuru.bzl", "rr_cc_test")
 load("//rimuru/core/default:rules_cc.bzl", "cc_library")
 
 cc_library(
-    name = "core_lib",
-    srcs = ["fib.cc"],
-    hdrs = ["fib.h"],
+    name = "etl",
+    srcs = ["etl/etl.cc"],
+    hdrs = ["etl/etl.h"],
     visibility = ["//rimuru:__pkg__"],
     deps = [
-        "@com_google_absl//absl/strings:str_format",
+        "//third_party/eigen3",
+        "@com_google_absl//absl/strings",
         "@glog",
     ],
 )
 
 rr_cc_test(
-    name = "core_test",
-    srcs = ["fib_test.cc"],
+    name = "etl_test",
+    srcs = ["etl/etl_test.cc"],
     deps = [
-        ":core_lib",
+        ":etl",
         "@googletest//:gtest_main",
     ],
 )

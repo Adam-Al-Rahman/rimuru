@@ -15,9 +15,16 @@
     "absl",
     "Bazel",
     "bazelrc",
+    "bugprone",
     "buildifier",
+    "colwise",
+    "Constexpr",
     "eigen",
+    "ETLREADCSVTEST",
+    "ETLREADCSVTESTRETURN",
     "filegroup",
+    "flgs",
+    "genrule",
     "gflags",
     "googletest",
     "hdrs",
@@ -26,9 +33,14 @@
     "HWTEST",
     "kwargs",
     "pybind",
+    "READCSV",
     "Rimuru",
+    "rowwise",
     "skylib",
-    "srcs"
+    "srcs",
+    "Struct",
+    "subpackages",
+    "swappable"
   ],
 
   "files.exclude": {

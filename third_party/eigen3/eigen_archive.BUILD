@@ -18,7 +18,6 @@ ALL_FILES_WITH_EXTENSIONS = glob(["**/*.*"])
 EIGEN_HEADERS = glob(
     [
         "Eigen/*",
-        # "unsupported/Eigen/CXX11/*",
     ],
     exclude = [
         "**/src/**",
@@ -30,8 +29,6 @@ EIGEN_MPL2_SOURCES = glob(
     [
         "Eigen/**/src/**/*.h",
         "Eigen/**/src/**/*.inc",
-        # "unsupported/Eigen/**/src/**/*.h",
-        # "unsupported/Eigen/**/src/**/*.inc",
     ],
     exclude = [
         # This guarantees that any file depending on non MPL2 licensed code

@@ -14,6 +14,7 @@ exports_files(["LICENSE"])
 
 EIGEN3_THIRD_PARTY_HEADERS = [
     "Eigen/Core",
+    "Eigen/Dense",
     "Eigen/LU",
     "Eigen/Cholesky",
     "Eigen/Eigenvalues",
@@ -22,15 +23,12 @@ EIGEN3_THIRD_PARTY_HEADERS = [
     "Eigen/SparseCholesky",
     "Eigen/SparseCore",
     "Eigen/SVD",
-    # "unsupported/Eigen/MatrixFunctions",
-    # "unsupported/Eigen/SpecialFunctions",
-    # "unsupported/Eigen/CXX11/ThreadPool",
-    # "unsupported/Eigen/CXX11/Tensor",
 ]
 
 cc_library(
     name = "eigen3",
     hdrs = EIGEN3_THIRD_PARTY_HEADERS,
+    includes = ["."],
     visibility = ["//visibility:public"],
     deps = [
         "@eigen_archive//:eigen3",
@@ -41,9 +39,8 @@ filegroup(
     name = "all_files",
     srcs = glob(
         ["**/*"],
-        exclude = ["**/OWNERS"],
     ),
-    visibility = ["//visibility:public"],
+    visibility = ["//rimuru:__subpackages__"],
 )
 
 filegroup(

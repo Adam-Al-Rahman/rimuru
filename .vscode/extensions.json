@@ -1,5 +1,7 @@
 {
-    "recommendations": [
-        "eamodio.gitlens"
-    ]
+  "recommendations": [
+    "eamodio.gitlens",
+    "llvm-vs-code-extensions.vscode-clangd",
+    "xaver.clang-format"
+  ]
 }
